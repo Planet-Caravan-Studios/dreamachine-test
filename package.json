@@ -13,6 +13,7 @@
     "@astrojs/check": "^0.5.4",
     "astro": "^4.4.0",
     "sass": "^1.71.0",
+    "swiper": "^11.1.0",
     "typescript": "^5.3.3"
   }
 }

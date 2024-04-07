@@ -1,0 +1,136 @@
+---
+
+---
+
+<div class="Dreamachine">
+		
+	<div id="div-container">
+		<div class="cycle-div red" style="">
+			<img src="/dreamachine-pieces/center-1.png"/>
+		</div>
+		<div class="cycle-div placeholder" style="">
+			<img src="/dreamachine-pieces/placeholder.png"/>
+		</div>
+		<div class="cycle-div blue" style="">
+			<img src="/dreamachine-pieces/center-2.png"/>
+		</div>
+		<div class="cycle-div placeholder" style="">
+			<img src="/dreamachine-pieces/placeholder.png"/>
+		</div>
+
+		<div class="cycle-div red" style="">
+			<img src="/dreamachine-pieces/mid-1.png"/>
+		</div>
+		<div class="cycle-div placeholder" style="">
+			<img src="/dreamachine-pieces/placeholder.png"/>
+		</div>
+		<div class="cycle-div blue" style="">
+			<img src="/dreamachine-pieces/mid-2.png"/>
+		</div>
+		<div class="cycle-div placeholder" style="">
+			<img src="/dreamachine-pieces/placeholder.png"/>
+		</div>
+		
+		<div class="cycle-div red" style="">
+			<img src="/dreamachine-pieces/upper-1.png"/>
+		</div>
+		<div class="cycle-div placeholder">
+			<img src="/dreamachine-pieces/placeholder.png"/>
+		</div>
+		<div class="cycle-div blue" style="">
+			<img src="/dreamachine-pieces/upper-2.png"/>
+		</div>
+		<div class="cycle-div placeholder" style="">
+			<img src="/dreamachine-pieces/placeholder.png"/>
+		</div>
+
+		<div class="cycle-div red" style="">
+			<img src="/dreamachine-pieces/lower-1.png"/>
+		</div>
+		<div class="cycle-div placeholder" style="">
+			<img src="/dreamachine-pieces/placeholder.png"/>
+		</div>
+		<div class="cycle-div blue" style="">
+			<img src="/dreamachine-pieces/lower-2.png"/>
+		</div>
+		<div class="cycle-div placeholder" style="">
+			<img src="/dreamachine-pieces/placeholder.png"/>
+		</div>
+		
+	</div>
+
+</div>
+
+
+<style lang="scss">
+	$red: #bf0038;
+	$blue: #3c69ad;
+	.Dreamachine{
+		background-color: #000;
+		max-height: 100%;
+	}
+	.cycle-div{
+		width: 100%;
+		max-width: 500px;
+		margin: auto;
+		position: relative;
+		img{
+			max-width: 100%;
+			filter: blur(2px);
+		}
+		&.red:after{
+			content: '';
+			background-color: $red;
+			mix-blend-mode: multiply;
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+		}
+		&.blue:after{
+			content: '';
+			background-color: $blue;
+			mix-blend-mode: multiply;
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+		}
+		&.placeholder img{
+			opacity:0;
+		}
+		
+	}
+</style>
+
+<script>
+	// Function to initialize the cycling of divs
+	function cycleDivs() {
+	  //const divs = document.querySelectorAll('.cycle-div');
+	  const divs = Array.from(document.getElementsByClassName('cycle-div') as HTMLCollectionOf<HTMLElement>)
+
+	  let currentDivIndex = 0; // Track the current div
+
+	  // Initially hide all divs except the first one
+	  divs.forEach((div, index) => {
+	    div.style.display = index === 0 ? 'block' : 'none';
+	  });
+
+	  // Function to show the next div and hide the current one
+	  function showNextDiv() {
+	    divs[currentDivIndex].style.display = 'none'; // Hide current div
+	    currentDivIndex = (currentDivIndex + 1) % divs.length; // Move to next div, loop back to 0 if at the end
+	    divs[currentDivIndex].style.display = 'block'; // Show next div
+	  }
+
+	  // Set interval to automatically cycle through divs every 2 seconds (2000 milliseconds)
+	  //const 78rpm = Math.floor(78 / 1000);
+	  setInterval(showNextDiv, 100);
+	}
+
+	// Call the function when the document is fully loaded
+	document.addEventListener('DOMContentLoaded', cycleDivs);
+
+</script>
