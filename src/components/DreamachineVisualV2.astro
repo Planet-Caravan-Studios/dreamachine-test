@@ -5,57 +5,32 @@
 <div class="Dreamachine">
 		
 	<div id="div-container">
-		<div class="cycle-div red" >
-			<img src="/dreamachine-pieces/center-1.png"/>
-		</div>
-		<div class="cycle-div placeholder" >
-			<img src="/dreamachine-pieces/placeholder.png"/>
-		</div>
-		<div class="cycle-div blue" >
-			<img src="/dreamachine-pieces/center-2.png"/>
-		</div>
-		<div class="cycle-div placeholder" >
-			<img src="/dreamachine-pieces/placeholder.png"/>
-		</div>
-
-		<div class="cycle-div red" >
-			<img src="/dreamachine-pieces/mid-1.png"/>
-		</div>
-		<div class="cycle-div placeholder" >
-			<img src="/dreamachine-pieces/placeholder.png"/>
-		</div>
-		<div class="cycle-div blue" >
-			<img src="/dreamachine-pieces/mid-2.png"/>
-		</div>
-		<div class="cycle-div placeholder" >
-			<img src="/dreamachine-pieces/placeholder.png"/>
+		<div class="cycle-div " >
+			<img src="/dreamachine-pieces/full-red.png"/>
 		</div>
 		
-		<div class="cycle-div red" >
-			<img src="/dreamachine-pieces/upper-1.png"/>
+		<div class="cycle-div offset-1" >
+			<img src="/dreamachine-pieces/full-blue.png"/>
 		</div>
-		<div class="cycle-div placeholder">
-			<img src="/dreamachine-pieces/placeholder.png"/>
+		
+		<div class="cycle-div offset-2" >
+			<img src="/dreamachine-pieces/full-red.png"/>
 		</div>
-		<div class="cycle-div blue" >
-			<img src="/dreamachine-pieces/upper-2.png"/>
-		</div>
-		<div class="cycle-div placeholder" >
-			<img src="/dreamachine-pieces/placeholder.png"/>
+		
+		<div class="cycle-div offset-3" >
+			<img src="/dreamachine-pieces/full-blue.png"/>
 		</div>
 
-		<div class="cycle-div red" >
-			<img src="/dreamachine-pieces/lower-1.png"/>
+		<div class="cycle-div offset-2" >
+			<img src="/dreamachine-pieces/full-red.png"/>
 		</div>
-		<div class="cycle-div placeholder" >
-			<img src="/dreamachine-pieces/placeholder.png"/>
+		
+		<div class="cycle-div offset-1" >
+			<img src="/dreamachine-pieces/full-blue.png"/>
 		</div>
-		<div class="cycle-div blue" >
-			<img src="/dreamachine-pieces/lower-2.png"/>
-		</div>
-		<div class="cycle-div placeholder" >
-			<img src="/dreamachine-pieces/placeholder.png"/>
-		</div>
+		
+		
+		
 		
 	</div>
 
@@ -71,14 +46,37 @@
 	}
 	.cycle-div{
 		width: 100%;
-		max-width: 500px;
+		max-width: 1000px;
 		margin: auto;
 		position: relative;
 		img{
 			max-width: 100%;
-			filter: blur(5px);
+			filter: blur(2px);
+			position: relative;
 		}
-		&.red:after{
+		
+		&.offset-1{
+			img{
+				position: relative;
+				//left: -5px;
+			}
+			
+		}
+		&.offset-2{
+			img{
+				position: relative;
+				//left: -10px;
+			}
+			
+		}
+		&.offset-3{
+			img{
+				position: relative;
+				//left: -15px;
+			}
+			
+		}
+		/*&.red:after{
 			content: '';
 			background-color: $red;
 			mix-blend-mode: multiply;
@@ -97,7 +95,7 @@
 			left: 0;
 			width: 100%;
 			height: 100%;
-		}
+		}*/
 		&.placeholder img{
 			opacity:0;
 		}
@@ -127,7 +125,7 @@
 
 	  // Set interval to automatically cycle through divs every 2 seconds (2000 milliseconds)
 	  //const 78rpm = Math.floor(78 / 1000);
-	  setInterval(showNextDiv, 100);
+	  setInterval(showNextDiv, 175);
 	}
 
 	// Call the function when the document is fully loaded
